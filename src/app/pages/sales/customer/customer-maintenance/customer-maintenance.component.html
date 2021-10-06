@@ -1,0 +1,157 @@
+<!-- <app-button-header></app-button-header> -->
+
+<form [formGroup]="customerMaintenanceForm">
+  <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column">
+    <!-- Customer Information Field -->
+    <div fxFlex="50%">
+      <div fxLayout="column" class="mb-4">
+        <mat-card class="z-depth-1 rounded-0 p-0">
+          <div class="p-3 grey lighten-3">
+            <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Main Information</span>
+          </div>
+          <div formGroupName="Customer" class="p-3">
+            <div style="font-size:12px;">
+              <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="95%">
+                <mat-label>Code *</mat-label>
+                <input matInput class="segoe-ui-font" formControlName="CustomerCode" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div style="font-size:12px;">
+              <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="95%">
+                <mat-label>Name *</mat-label>
+                <input matInput class="segoe-ui-font" formControlName="Name" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div style="font-size:12px;">
+              <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="95%">
+                <mat-label>Contact Number</mat-label>
+                <input matInput class="segoe-ui-font" formControlName="DefaultContactNo" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div style="font-size:12px;">
+              <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="95%">
+                <mat-label>TIN</mat-label>
+                <input matInput class="segoe-ui-font" formControlName="TIN" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div style="font-size:12px;">
+              <mat-form-field appearance="outline" fxFlex="75%" fxFlex.lt-md="95%">
+                <mat-label class="segoe-ui-font">Description</mat-label>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="7" class="segoe-ui-font" formControlName="DetailDescription"></textarea>
+              </mat-form-field>
+            </div>
+            <div>
+              <br />
+              <span class="segoe-ui-font mr-3 fs-sct-12">Sales Type:</span>
+              <mat-radio-group class="mt-2 segoe-ui-font" formControlName="DefaultSalesType" required>
+                <mat-radio-button class="mr-3 segoe-ui-font fs-sct-12" color="primary"
+                  *ngFor="let salesType of salesTypes" [value]="salesType.value" required>
+                  {{salesType.viewValue}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </mat-card>
+        <!-- Address Field -->
+        <br />
+        <mat-card class="rounded-0 z-depth-1 p-0">
+          <div class="p-3 grey lighten-3">
+            <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Address</span>
+          </div>
+          <div formGroupName="MainAddress" class="px-3 pt-3">
+            <div>
+              <div fxLayout="row" fxLayoutGap="5%" style="font-size:12px;">
+                <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="70%">
+                  <mat-label class="segoe-ui-font">Main Address *</mat-label>
+                  <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="7" class="segoe-ui-font" formControlName="AddressLine1"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="20%">
+                  <mat-label class="segoe-ui-font">Zip Code *</mat-label>
+                  <input matInput class="segoe-ui-font" formControlName="ZipCode" autocomplete="off">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div formGroupName="DeliveryAddress" class="px-3">
+            <div>
+              <div fxLayout="row" fxLayoutGap="5%" style="font-size:12px;">
+                <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="70%">
+                  <mat-label class="segoe-ui-font">Deliveries</mat-label>
+                  <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="7" class="segoe-ui-font" formControlName="AddressLine1"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="20%">
+                  <mat-label class="segoe-ui-font">Zip Code</mat-label>
+                  <input matInput class="segoe-ui-font" formControlName="ZipCode" autocomplete="off">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div formGroupName="InvoiceAddress" class="px-3">
+            <div>
+              <div fxLayout="row" fxLayoutGap="5%" style="font-size:12px;">
+                <mat-form-field appearance="outline" fxFlex="50%" fxFlex.lt-md="70%">
+                  <mat-label class="segoe-ui-font">Invoices</mat-label>
+                  <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="7" class="segoe-ui-font" formControlName="AddressLine1"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="20%">
+                  <mat-label class="segoe-ui-font">Zip Code</mat-label>
+                  <input matInput class="segoe-ui-font" formControlName="ZipCode" autocomplete="off">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <!-- Contact Person Field -->
+    <div fxFlex="50%" formGroupName="ContactPerson">
+      <mat-card class="rounded-0 z-depth-1 p-0">
+        <div class="p-3 grey lighten-3">
+          <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Contact Person</span>
+        </div>
+        <div fxLayout="column" class="mb-4 p-3">
+          <div style="font-size:12px;">
+            <mat-form-field fxFlex="35%" appearance="outline" fxFlex.lt-md="95%">
+              <mat-label class="segoe-ui-font">First Name</mat-label>
+              <input matInput class="segoe-ui-font" formControlName="FirstName" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="font-size:12px;">
+            <mat-form-field fxFlex="35%" appearance="outline" fxFlex.lt-md="95%">
+              <mat-label class="segoe-ui-font">Middle Name</mat-label>
+              <input matInput class="segoe-ui-font" formControlName="MiddleName" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="font-size:12px;">
+            <mat-form-field fxFlex="35%" appearance="outline" fxFlex.lt-md="95%">
+              <mat-label class="segoe-ui-font">Last Name</mat-label>
+              <input matInput class="segoe-ui-font" formControlName="LastName" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="font-size:12px;">
+            <mat-form-field fxFlex="35%" appearance="outline" fxFlex.lt-md="95%">
+              <mat-label class="segoe-ui-font">Contact Number</mat-label>
+              <input matInput class="segoe-ui-font" formControlName="PhoneNumber" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="font-size:12px;">
+            <mat-form-field fxFlex="70%" appearance="outline" fxFlex.lt-md="95%">
+              <mat-label class="segoe-ui-font">Email Address</mat-label>
+              <input matInput class="segoe-ui-font" formControlName="EmailAddress" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="start" fxLayoutGap.lt-md="5%">
+    <button mat-raised-button color="primary" class="segoe-ui-font mt-2 fs-sct-12 rounded-0" fxFlex="9%" fxFlex.lt-lg="100%"
+      (click)="onSubmit()">Submit / Save<mat-icon matSuffix class="fs-sct-17 mt-1 ml-1">save</mat-icon></button>
+  </div>
+</form>
+
+<app-progressbar-confirm [displayProgressBar]="displayProgressBar"> </app-progressbar-confirm>

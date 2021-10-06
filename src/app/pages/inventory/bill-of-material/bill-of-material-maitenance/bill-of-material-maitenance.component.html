@@ -1,0 +1,109 @@
+<form [formGroup]="billOfMaterialForm">
+    <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column">
+        <div fxLayout="column" fxFlex>
+            <mat-card class="z-depth-1 rounded-0 p-0">
+                <div class="p-3 grey lighten-3">
+                    <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Main Information</span>
+                </div>
+                <div class="p-3" fxLayout="column">
+                    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="2%">
+                        <div fxFlex="60%" fxLayout="column" fxLayoutGap="1%">
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="32%" fxFlex.lt-md="98%">
+                                    <mat-select class="segoe-ui-font" placeholder="Revision No" formControlName="RevisionNo">
+                                        <mat-option value="REV-1" class="segoe-ui-font">REV-1 </mat-option> 
+                                        <mat-option value="REV-2" class="segoe-ui-font">REV-2</mat-option> 
+                                        <mat-option value="REV-3" class="segoe-ui-font">REV-3</mat-option> 
+                                        <mat-option value="REV-4" class="segoe-ui-font">REV-4</mat-option> 
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutGap="3%" fxLayoutGap.lt-md="1%" fxLayout.lt-md="column">
+                                <div class="fs-sct-12" fxFlex="32%">
+                                    <mat-form-field appearance="outline" fxFlex.lt-md="98%" fxFlex="100%">
+                                        <mat-select class="segoe-ui-font" placeholder="Item Type" formControlName="ItemTypeCode">
+                                            <mat-option *ngFor="let itemTypeList of itemTypeLists" [value]="itemTypeList.itemTypeCode" class="segoe-ui-font">
+                                                {{ itemTypeList.itemTypeCode }} - {{ itemTypeList.name }}
+                                            </mat-option> 
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="fs-sct-12" fxFlex>
+                                    <mat-form-field appearance="outline" fxFlex.lt-md="98%" fxFlex="49%" >
+                                        <mat-select class="segoe-ui-font" placeholder="Customer" formControlName="CustomerCode">
+                                            <mat-option *ngFor="let customerList of customerLists" [value]="customerList.customerCode" class="segoe-ui-font">
+                                                {{ customerList.name }}
+                                            </mat-option> 
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="67%" fxFlex.lt-md="98%">
+                                    <mat-label>Part Number *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" formControlName="PartNumber">
+                                </mat-form-field>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="67%" fxFlex.lt-md="98%">
+                                    <mat-label>Part Name *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" formControlName="PartName">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxFlex="40%">
+                        </div>
+                    </div>
+                    <div>
+                        <mat-card class="rounded-0 z-depth-0 p-0 mt-4">
+                            <div class="p-3 grey lighten-3">
+                                <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Sub Information</span>
+                            </div>
+                            <div fxLayout="column" class="mb-4 px-1 mt-4 pt-1 pb-1" fxLayoutGap="0.5%">                            
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="30%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-label class="segoe-ui-font">Specification</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" formControlName="Specification">
+                                    </mat-form-field>
+                                </div>
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="30%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-select class="segoe-ui-font" placeholder="Classification" formControlName="ClassificationCode">
+                                            <mat-option *ngFor="let classificationList of classificationLists " [value]="classificationList.classificationCode" class="segoe-ui-font">
+                                                {{ classificationList.name }}
+                                            </mat-option> 
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div fxLayout="row" fxLayoutGap="5.8%" fxLayout.lt-md="column" fxLayoutGap.lt-md="1%">
+                                    <div class="fs-sct-12">
+                                        <mat-form-field fxFlex="100%" appearance="outline" fxFlex.lt-md="95%">
+                                            <mat-label class="segoe-ui-font">Speed Per Minute</mat-label>
+                                            <input matInput class="segoe-ui-font" autocomplete="off" type="number" formControlName="SpeedPerMinute">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="fs-sct-12">
+                                        <mat-form-field fxFlex="100%" appearance="outline" fxFlex.lt-md="95%">
+                                            <mat-label class="segoe-ui-font">Usage</mat-label>
+                                            <input matInput class="segoe-ui-font" autocomplete="off" type="number"  formControlName="Usage">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="start" fxLayoutGap.lt-md="5%" class="mt-4">
+        <button mat-raised-button color="primary" class="segoe-ui-font mt-2 fs-sct-12 rounded-0" fxFlex="9%" fxFlex.lt-lg="100%" (click)="onSubmit()">
+            Submit / Save
+            <mat-icon matSuffix class="fs-sct-17 mt-1 ml-1">
+                save
+            </mat-icon>
+        </button>
+    </div>
+</form>
+
+<app-progressbar-confirm [displayProgressBar]="displayProgressBar"> </app-progressbar-confirm>

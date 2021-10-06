@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import '/src//assets/scss/semi-tailwind.scss';
+
+html, body { 
+    height: 100%; 
+};
+
+body {
+    margin: 0;
+};
+
+
+.snackbar-primary {
+    background-color: hsl(171, 100%, 41%);
+    color: hsl(0, 0%, 98%);
+}
+
+.snackbar-link {
+background-color: hsl(217, 71%, 53%);
+color: hsl(0, 0%, 98%);
+}
+
+.snackbar-info {
+background-color: hsl(204, 86%, 53%);
+color: hsl(0, 0%, 98%);
+}
+
+.snackbar-success {
+background-color: hsl(141, 53%, 53%);
+color: hsl(0, 0%, 98%);
+}
+
+.snackbar-warning {
+background-color: hsl(48, 100%, 67%);
+color: hsl(0, 0%, 96%);
+}
+
+.snackbar-danger {
+background-color: hsl(348, 100%, 61%);
+color: hsl(0, 0%, 98%);
+}
+
+.mat-simple-snackbar-action > button { 
+    color: white 
+} 
+  
+.side-nav + div > .mat-expansion-panel-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+
+}
+
+.side-nav.mat-expanded {
+    height: 20px !important;
+}
+
+mat-expansion-panel-header.mat-expanded {
+    padding-bottom: 10px !important;
+}

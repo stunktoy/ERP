@@ -1,0 +1,70 @@
+<form [formGroup]="itemTypeForm">
+    <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column">
+        <div fxLayout="column" fxFlex>
+            <mat-card class="z-depth-1 rounded-0 p-0">
+                <div class="p-3 grey lighten-3">
+                    <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Main Information</span>
+                </div>
+                <div class="p-3" fxLayout="column">
+                    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="2%">
+                        <div fxFlex="60%" fxLayout="column" fxLayoutGap="1%">
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="15%" fxFlex.lt-md="98%">
+                                    <mat-label>Code *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" formControlName="ItemTypeCode">
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutGap="3%" fxLayoutGap.lt-md="1%" fxLayout.lt-md="column">
+                                <div class="fs-sct-12" fxFlex="32%">
+                                    <mat-form-field appearance="outline" fxFlex.lt-md="98%" fxFlex="100%">
+                                        <mat-label>Name / Description*</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" formControlName="Name">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex="40%">
+                        </div>
+                    </div>
+                    <div>
+                        <mat-card class="rounded-0 z-depth-0 p-0 mt-4">
+                            <div class="p-3 grey lighten-3">
+                                <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Sub Information</span>
+                            </div>
+                            <div fxLayout="column" class="mb-4 px-1 mt-4 pt-1 pb-1" fxLayoutGap="0.5%">                            
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="15%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-label class="segoe-ui-font">Date Created:</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="15%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-label class="segoe-ui-font">Created By:</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="25%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-label class="segoe-ui-font">GUI ID:</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" disabled>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="start" fxLayoutGap.lt-md="5%" class="mt-4">
+        <button mat-raised-button color="primary" class="segoe-ui-font mt-2 fs-sct-12 rounded-0" fxFlex="9%" fxFlex.lt-lg="100%" (click)="onSubmit()">
+            Submit / Save
+            <mat-icon matSuffix class="fs-sct-17 mt-1 ml-1">
+                save
+            </mat-icon>
+        </button>
+    </div>
+</form>
+
+<app-progressbar-confirm [displayProgressBar]="displayProgressBar"> </app-progressbar-confirm>

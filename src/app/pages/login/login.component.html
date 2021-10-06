@@ -1,0 +1,66 @@
+<div class="h-100" id="mainbackground">
+    <mat-card-actions class="login-size" fxLayout="row" fxLayoutAlign="center center" style="opacity: 0.95;">
+        <div fxFlex="35%"></div>
+        <div fxFlex="30%" class="container">
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="center center">
+                <div fxFlex="30%"></div>
+                <div fxFlex="40%">
+                    <mat-card class="example-card">
+                        <!-- <div mat-card-avatar class="logo-image" ></div> -->
+                        <mat-card-title class="blue-text text-darken-3 segoe-ui-font fs-sct-18 mt-1 mb-3">SimpliCT
+                            Solution</mat-card-title>
+                        <br>
+                        <mat-card-header fxLayoutAlign="center">
+                            <mat-card-title fxLayoutAlign="center" class="grey-text text-darken-3 segoe-ui-font">Entity
+                                Resource Planning
+                            </mat-card-title>
+                            <mat-card-subtitle fxLayoutAlign="center" class="segoe-ui-font">
+                                login using your account
+                            </mat-card-subtitle>                            
+                        </mat-card-header>
+                        <hr>                       
+                        <form [formGroup]="loginForm">
+                            <mat-card-content>
+                                <br />
+                                <mat-card-subtitle fxLayoutAlign="center" class="mb-4" *ngIf="notExist == true" [@fadeInOut]>
+                                    <mat-icon matSuffix class="red-text accent-4 mt-2" style="vertical-align:middle;">
+                                        info
+                                    </mat-icon>&nbsp;
+                                    <span class="fs-sct-13 red-text accent-4 segoe-ui-font mt-2">
+                                       Either username or password is incorrect.
+                                    </span>
+                                </mat-card-subtitle>
+                                <p>
+                                    <mat-form-field appearance="outline" class="w-100-sct segoe-ui-font">
+                                        <mat-label class="segoe-ui-font">Username</mat-label>
+                                        <input matInput autocomplete="off" formControlName="userName">
+                                        <mat-icon matSuffix class="grey-text text-darken-3">person</mat-icon>
+                                        <mat-hint></mat-hint>
+                                    </mat-form-field>
+                                </p>
+                                <mat-form-field appearance="outline" class="w-100-sct mb-0 segoe-ui-font">
+                                    <mat-label class="segoe-ui-font">Password</mat-label>
+                                    <input matInput autocomplete="off" type="password" formControlName="password">
+                                    <mat-icon matSuffix class="grey-text text-darken-3">vpn_key</mat-icon>
+                                    <mat-hint></mat-hint>
+                                </mat-form-field>                               
+                                <a fxLayoutAlign="start" class="cursor-pointer-sct blue-text segoe-ui-font" href="#">Forgot Password?</a>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <div fxLayout="row" fxLayoutAlign="left left">
+                                    <div fxFlex="2%"></div>
+                                    <div fxFlex="20%">
+                                        <button mat-raised-button color="primary" class="segoe-ui-font"
+                                            (click)="onSubmit()">Proceed to Login</button>
+                                    </div>
+                                </div>
+                            </mat-card-actions>
+                        </form>
+                    </mat-card>
+                </div>
+                <div fxFlex="30%"></div>
+            </div>
+        </div>
+        <div fxFlex="35%"></div>
+    </mat-card-actions>
+</div>

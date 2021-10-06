@@ -1,0 +1,9 @@
+<div *ngIf="!!routeChangeData.activeLink">
+    <mat-chip-list >
+        <mat-chip class="fs-sct-12 segoe-ui-font" color="primary" selected><mat-icon matSuffix class="fs-sct-16 mt-2">{{ routeChangeData.parentIcon  }}</mat-icon>{{ routeChangeData.parentLink }} </mat-chip>
+        <span class="fs-sct-16 mx-1">\</span> 
+        <mat-chip class="fs-sct-12 segoe-ui-font" > {{ routeChangeData.activeLink }}</mat-chip>
+    </mat-chip-list>
+    <hr />
+</div>
+

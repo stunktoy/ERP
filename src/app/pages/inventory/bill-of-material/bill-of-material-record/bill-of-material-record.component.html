@@ -1,0 +1,14 @@
+<app-data-table-filter  
+    [columns]="columns" 
+    (onSearch)= "filterRecord($event)"
+></app-data-table-filter>
+
+<app-bar-loader *ngIf="!tableData"></app-bar-loader>
+
+<app-data-table *ngIf="tableData"  
+    [tableData]="tableData" 
+    [pagingData]="pagingData"  
+    [columns]="columns" 
+    (pagingEvent)="pagingEvent($event)"
+>
+</app-data-table>

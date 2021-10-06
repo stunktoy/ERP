@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="segoe-ui-font grey lighten-3">SimpliCT ERP</mat-toolbar>
+    <mat-nav-list>
+      <app-side-navigator></app-side-navigator>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="segoe-ui-font" hidden></span>
+      <span style="flex: 1 1 auto;"></span>
+      <div fxShow="true" fxHide.lt-md="false">
+        <div fxLayout="row" fxLayoutAlign="center end">
+          <app-top-navigator></app-top-navigator>
+        </div>
+      </div>
+    </mat-toolbar>
+    <div class="mx-3 my-3 ">
+      <app-breadcrumb></app-breadcrumb>
+      <div class="my-2">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

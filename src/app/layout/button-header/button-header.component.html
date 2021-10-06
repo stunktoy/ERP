@@ -1,0 +1,42 @@
+<mat-card class="mb-4 rounded-0 z-depth-1 pb-1">
+    <div fxLayout="row" fxLayout.lt-xl="column" fxLayoutAlign.gt-lg="row" fxLayoutAlign.lt-lg="space-evenly none" fxLayoutAlign.lt-xl="space-evenly none" fxFlex="100%" fxLayoutGap="1%" fxLayoutGap.lt-lg="4%" fxLayoutGap.lt-sm="5%" fxLayoutGap.gt-md="2%"> 
+        
+        <!-- Show & Hide column select-->
+        <div class="fs-sct-12" fxFlex="12%" >
+            <mat-form-field appearance="outline" fxFlex>  
+                <mat-label class="segoe-ui-font">Show / Hide Column</mat-label>
+                <mat-select class="segoe-ui-font" placeholder="Show All" multiple>
+                    <mat-option   class="segoe-ui-font" >
+                    </mat-option> 
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <!-- Filter by columns select -->
+        <div class="fs-sct-12" fxFlex="12%">
+            <mat-form-field appearance="outline" fxFlex>  
+                <mat-label class="segoe-ui-font">Search Criteria</mat-label>
+                <mat-select class="segoe-ui-font" placeholder="All Text Columns">
+                    <mat-option class="segoe-ui-font" value="" selected>All Text Columns</mat-option>
+                    <hr style="width:90%"/>
+                    <mat-option class="segoe-ui-font">
+                    </mat-option> 
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- Search bar text -->
+        <div class="fs-sct-12" fxFlex="40%" fxFlex.lt-xl="10%">
+            <mat-form-field appearance="outline" fxFlex>
+                <input placeholder="Search:" matInput class="segoe-ui-font" autocomplete="off">
+            </mat-form-field>
+        </div>
+
+        <div fxLayoutAlign="end">
+            <button mat-raised-button color="primary" class="segoe-ui-font mt-2 fs-sct-12 rounded-0" fxFlex="100%" fxFlex.lt-lg="100%">
+                Submit / Save<mat-icon matSuffix class="fs-sct-17 mt-1 ml-1">save</mat-icon>
+            </button>
+        </div>
+
+    </div>
+</mat-card>

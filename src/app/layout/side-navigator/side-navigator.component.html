@@ -1,0 +1,50 @@
+
+<div style="font-size:10px;">
+    <mat-form-field appearance="outline" fxFlex="90%" class="ml-2">
+      <input matInput class="segoe-ui-font" placeholder="Search:" autocomplete="off">
+      <mat-icon matSuffix class="fs-sct-15 grey-text text-darken-2">search</mat-icon>
+    </mat-form-field>
+</div>
+<!-- <div class="mt-2" *ngFor="let sideNavList of sideNavLists; index as i ">
+    <mat-divider class="mb-2" *ngIf="sideNavList.type == 'Parent' && i != 0"></mat-divider>
+    <div class="sidenav-parent mb-2" *ngIf="sideNavList.type == 'Parent'">
+        <span class="ml-2 mt-2 fs-sct-13 grey-text text-darken-1" >{{ sideNavList.name}}</span>
+    </div>
+    <div class="sidenav-child mb-1 sidenav-child pb-2 pt-2" 
+        *ngIf="sideNavList.type == 'Child'" 
+        [routerLink]="[sideNavList.routeLink]"
+        routerLinkActive="active-child"
+    >
+        <mat-icon matSuffix class="ml-4 fs-sct-17 va-top mt-010">{{ sideNavList.icon }}</mat-icon>
+        <span class="fs-sct-11 sidebar-child fs-semi-bold-sct ml-1 grey-text text-darken-3">{{ sideNavList.name }}</span>
+    </div>
+</div> -->
+
+<div>
+    <mat-accordion *ngFor="let sideNavList of sideNavLists; index as i ">
+        <mat-divider *ngIf="sideNavList.type == 'Parent' && i != 0"></mat-divider>
+        <mat-expansion-panel class="mat-elevation-z0 no-margin mb-0" *ngIf="sideNavList.type == 'Parent'" >
+            <mat-expansion-panel-header class="pl-2 side-nav" >
+                <mat-panel-title *ngIf="sideNavList.type == 'Parent'" >
+                    <mat-icon matSuffix class="mr-2 mt-1 fs-sct-15 grey-text text-darken-2">{{ sideNavList.icon}}</mat-icon>
+                    <span class="mt-1 fs-sct-13 fs-semi-bold-jss grey-text text-darken-1">{{ sideNavList.name}}</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let sideNavChildList of sideNavLists">
+                <div class="pr-3 px-3" *ngIf="sideNavChildList.type == 'Child' && sideNavChildList.sortReference == sideNavList.sortReference && sideNavChildList.routeLink == 'Title' ">
+                    <span class="fs-sct-11 fs-semi-bold-sct ml-1 teal-text text-accent-4 pt-2">{{ sideNavChildList.name}} </span>
+                </div>
+                <div class="pr-3 pb-2 px-3 sidenav-child"  
+                *ngIf="sideNavChildList.type == 'Child' && sideNavChildList.sortReference == sideNavList.sortReference &&  sideNavChildList.routeLink != 'Title'" 
+                [routerLink]="[sideNavChildList.routeLink]"
+                routerLinkActive="active-child"
+                >
+                    <div class="pt-3">
+                        <mat-icon matSuffix class="fs-sct-17 va-top mt-010">{{ sideNavChildList.icon }}</mat-icon>
+                        <span class="fs-sct-11 sidebar-child fs-semi-bold-sct ml-1 grey-text text-darken-3 pt-2">{{ sideNavChildList.name }}</span>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>       
+    </mat-accordion>
+</div>

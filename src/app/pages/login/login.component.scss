@@ -1,0 +1,25 @@
+.w-100-sct {
+    width:100%;    
+}
+
+.logo-image {
+  background-image: url('../../../assets/images/login-logo.png');
+  background-size: cover;
+}
+
+.login-size{
+    max-height:99vh !important;
+    max-width:99vw !important;
+    width:99vw !important;
+    height:100vh !important;
+    margin-bottom:0px !important;
+    min-height: 100vh !important;
+
+}
+
+#mainbackground {
+  background: linear-gradient( rgba(25, 174, 255, 0.55), rgba(25, 174, 255, 0.55) ), url('../../../assets/images/main-background.jpg')center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

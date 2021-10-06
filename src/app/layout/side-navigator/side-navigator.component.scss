@@ -1,0 +1,38 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sidenav-child-hover:hover{
+    cursor:pointer;
+    color:#0f6bff !important;
+}
+
+.sidenav-child:hover{
+  cursor:pointer;
+  background-color:#eeeeee !important;
+}
+
+.active-child, .active-child > span, .active-child > div > span {
+  background-color:#eeeeee !important;
+  color: #ef5350 !important;
+}
+
+.not-active-child {
+  background-color:inherit !important;
+  color: #424242 !important;
+}
+

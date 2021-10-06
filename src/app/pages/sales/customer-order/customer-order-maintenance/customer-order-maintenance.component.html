@@ -1,0 +1,106 @@
+<form>
+    <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column">
+        <div fxLayout="column" fxFlex>
+            <mat-card class="z-depth-1 rounded-0 p-0">
+                <div class="p-3 grey lighten-3">
+                    <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Main Information</span>
+                </div>
+                <div class="p-3" fxLayout="column">
+                    <div fxLayout="row" fxLayout.lt-md="column">
+                        <div fxFlex="28%" fxLayout="column" fxLayoutGap="1%">
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="70%" fxFlex.lt-md="98%">
+                                    <mat-select class="segoe-ui-font" placeholder="Customer" [(ngModel)]="customerCode" name="customer">
+                                        <mat-option *ngFor="let customerList of customerLists" [value]="customerList.customerCode" class="segoe-ui-font">
+                                            {{ customerList.name }}
+                                        </mat-option> 
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="90%" fxFlex.lt-md="98%">
+                                    <mat-label>Order No. *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" >
+                                </mat-form-field>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="90%" fxFlex.lt-md="98%">
+                                    <mat-label>Order Date *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxFlex="30%" fxLayout="column" fxLayoutGap="1%">
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="45%" fxFlex.lt-md="98%">
+                                    <input matInput class="segoe-ui-font" autocomplete="off" [(ngModel)]="customerCode" name="customerCode" placeholder="Customer Code" disabled>
+                                </mat-form-field>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="80%" fxFlex.lt-md="98%">
+                                    <mat-label>Internal Order No. *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" >
+                                </mat-form-field>
+                            </div>
+                            <div class="fs-sct-12">
+                                <mat-form-field appearance="outline" fxFlex="80%" fxFlex.lt-md="98%">
+                                    <mat-label>Date Receive *</mat-label>
+                                    <input matInput class="segoe-ui-font" autocomplete="off" >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <mat-card class="rounded-0 z-depth-0 p-0 mt-4">
+                            <div class="p-3 grey lighten-3">
+                                <span class="segoe-ui-font fs-semi-bold-sct fs-sct-18">Order Line</span>
+                            </div>
+                            <div fxLayout="column" class="mb-4 px-1 mt-4 pt-1 pb-1" fxLayoutGap="0.5%">                            
+                                <div class="fs-sct-12">
+                                    <mat-form-field fxFlex="30%" appearance="outline" fxFlex.lt-md="95%">
+                                        <mat-label class="segoe-ui-font">Specification</mat-label>
+                                        <input matInput class="segoe-ui-font" autocomplete="off" >
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div>
+                                <form [formGroup]="form">
+                                    <table mat-table [dataSource]="dataSource" formArrayName="dates">
+                                        <!-- Row definitions -->
+                                        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; let i = index; columns: displayColumns;"></tr>
+                            
+                                        <!-- Column definitions -->
+                                        <ng-container matColumnDef="from">
+                                            <th mat-header-cell *matHeaderCellDef> From </th>
+                                            <td mat-cell *matCellDef="let row; let index = index" [formGroupName]="index">
+                                                <input type="date" formControlName="from" placeholder="From date">
+                                            </td>
+                                        </ng-container>
+                            
+                                        <ng-container matColumnDef="to">
+                                            <th mat-header-cell *matHeaderCellDef> To </th>
+                                            <td mat-cell *matCellDef="let row; let index = index" [formGroupName]="index">
+                                                <input type="date" formControlName="to" placeholder="To date">
+                                            </td>
+                                        </ng-container>
+                                    </table>
+                                </form>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="start" fxLayoutGap.lt-md="5%" class="mt-4">
+        <button mat-raised-button color="primary" class="segoe-ui-font mt-2 fs-sct-12 rounded-0" fxFlex="9%" fxFlex.lt-lg="100%" >
+            Submit / Save
+            <mat-icon matSuffix class="fs-sct-17 mt-1 ml-1">
+                save
+            </mat-icon>
+        </button>
+    </div>
+</form>
+
+<!-- <app-progressbar-confirm [displayProgressBar]="displayProgressBar"> </app-progressbar-confirm> -->
